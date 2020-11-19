@@ -5,9 +5,11 @@
 ### can be used as boilerplate for a `node.js` application
 
 ## to install dependencies
-```yarn install```
+```
+yarn install
+```
 
-## install `mongodb` and run `mongod`
+## install `mongodb` and run `mongod` command
 
 ## create a `./config.js` file with structure
 ```
@@ -17,5 +19,7 @@ module.exports = {
 ```
 
 ## to run
-```yarn run dev```
+```
+yarn run dev
+```
 
