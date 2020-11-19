@@ -20,6 +20,17 @@ userSchema.pre('save', async function(next){
   next();
 });
 
+// returns promise if callback has been omitted,
+// since we provide the callback, we don't handle .then()
+userSchema.methods.comparePassword = function (candidatePassword, callback) {
+  bcrypt.compare(candidatePassword, this.password, function (err, isMatch) {
+    if(err) {
+      return callback(err);
+    }
+
+    callback(null, isMatch);
+  });
+};
 
 // create the model class
 const ModelClass = mongoose.model('user', userSchema);
