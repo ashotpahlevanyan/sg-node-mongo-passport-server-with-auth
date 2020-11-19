@@ -17,9 +17,8 @@ exports.signup = function (req, res, next) {
     // if a user with email exists, return an error
 
     if(existingUser) {
-      res.status(422).send({error: 'Email is in use'});
+      return res.status(422).send({error: 'Email is in use'});
     }
-
 
     // if user with an email doesn't exist,
     // create a user record
@@ -29,13 +28,8 @@ exports.signup = function (req, res, next) {
         return next(err);
       }
 
+      // respond to request indicating the user was created
       res.json({success: true});
     });
-
-
-
-    // respond to request indicating the user was created
-
   });
-
 };
